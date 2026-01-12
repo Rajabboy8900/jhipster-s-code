@@ -17,9 +17,6 @@ import tech.jhipster.config.JHipsterConstants;
 import tech.jhipster.config.JHipsterProperties;
 import tech.jhipster.config.h2.H2ConfigurationHelper;
 
-/**
- * Configuration of web application with Servlet 3.0 APIs.
- */
 @Configuration
 public class WebConfigurer implements ServletContextInitializer {
 
@@ -67,9 +64,6 @@ public class WebConfigurer implements ServletContextInitializer {
         );
     }
 
-    /**
-     * Initializes H2 console.
-     */
     private void initH2Console(ServletContext servletContext) {
         LOG.info("Initialize H2 console");
         H2ConfigurationHelper.initH2Console(servletContext);

@@ -24,9 +24,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tech.jhipster.security.RandomUtil;
 
-/**
- * Service class for managing users.
- */
 @Service
 @Transactional
 public class UserService {

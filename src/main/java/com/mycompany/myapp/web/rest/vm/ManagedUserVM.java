@@ -3,9 +3,6 @@ package com.mycompany.myapp.web.rest.vm;
 import com.mycompany.myapp.service.dto.AdminUserDTO;
 import jakarta.validation.constraints.Size;
 
-/**
- * View Model extending the AdminUserDTO, which is meant to be used in the user management UI.
- */
 public class ManagedUserVM extends AdminUserDTO {
 
     public static final int PASSWORD_MIN_LENGTH = 4;

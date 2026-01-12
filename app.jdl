@@ -1,0 +1,28 @@
+application {
+  config {
+    baseName crm,
+    applicationType monolith,
+    packageName com.mycompany.myapp,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    devDatabaseType h2Disk,
+    buildTool maven,
+    clientFramework no   // "No client" tanlaganingiz uchun
+  }
+  entities *
+}
+
+entity Customer {
+  firstName String,
+  lastName String,
+  email String,
+  phoneNumber String
+}
+
+relationship ManyToOne {
+  Customer{user(login)} to User with builtInEntity
+}
+
+paginate Customer with pagination
+service Customer with serviceClass
+dto Customer with mapstruct

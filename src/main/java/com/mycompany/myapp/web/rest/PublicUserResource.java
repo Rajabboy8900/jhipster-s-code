@@ -31,12 +31,6 @@ public class PublicUserResource {
         this.userService = userService;
     }
 
-    /**
-     * {@code GET /users} : get all users with only public information - calling this method is allowed for anyone.
-     *
-     * @param pageable the pagination information.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body all users.
-     */
     @GetMapping("/users")
     public ResponseEntity<List<UserDTO>> getAllPublicUsers(@org.springdoc.core.annotations.ParameterObject Pageable pageable) {
         LOG.debug("REST request to get all public User names");

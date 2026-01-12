@@ -15,10 +15,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class JacksonConfiguration {
 
-    /**
-     * Support for Java date and time API.
-     * @return the corresponding Jackson module.
-     */
     @Bean
     public JavaTimeModule javaTimeModule() {
         final JavaTimeModule javaTime = new JavaTimeModule();
@@ -39,9 +35,6 @@ public class JacksonConfiguration {
         return new Jdk8Module();
     }
 
-    /*
-     * Support for Hibernate types in Jackson.
-     */
     @Bean
     public Hibernate6Module hibernate6Module() {
         return new Hibernate6Module().configure(Feature.SERIALIZE_IDENTIFIER_FOR_LAZY_NOT_LOADED_OBJECTS, true);

@@ -3,9 +3,6 @@ package com.mycompany.myapp.web.rest.vm;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-/**
- * View Model object for storing a user's credentials.
- */
 public class LoginVM {
 
     @NotNull
