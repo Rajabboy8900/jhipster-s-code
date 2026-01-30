@@ -1,0 +1,27 @@
+entity Course {
+  externalId Long required min(1)
+  versionNumber Integer min(1)
+  module String maxlength(60)
+  title String required minlength(3) maxlength(350)
+  creator String maxlength(60)
+  usesCount Integer min(0)
+  descriptionHtml TextBlob
+  route String required minlength(3) maxlength(150)
+  imageUrl String maxlength(500)
+  avatarUrl String maxlength(500)
+  //hidden Boolean required//
+}
+
+entity CoursePdf {
+  lectureUrl String maxlength(500)
+  tasksUrl String maxlength(500)
+  tests TextBlob
+}
+
+relationship OneToOne {
+  Course{pdf} to CoursePdf
+}
+
+dto * with mapstruct
+service * with serviceClass
+paginate * with pagination

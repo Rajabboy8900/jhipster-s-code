@@ -1,28 +1,47 @@
-application {
-  config {
-    baseName crm,
-    applicationType monolith,
-    packageName com.mycompany.myapp,
-    authenticationType jwt,
-    prodDatabaseType mysql,
-    devDatabaseType h2Disk,
-    buildTool maven,
-    clientFramework no   // "No client" tanlaganingiz uchun
-  }
-  entities *
+
+entity Student {
+  firstname String required minlength(1)
+  lastname String required minlength(1)
+  age Integer required
+  email String unique
+  phone String required minlength(9)
 }
 
-entity Customer {
-  firstName String,
-  lastName String,
-  email String,
-  phoneNumber String
+entity Group{
+  name String required minlength(3)
+  schedule String required
+  startDate LocalDate
+  endDate LocalDate
+  maxStudent Integer
+  monthlyFee BigDecimal
+  description String
+}
+
+entity Payment{
+  amount BigDecimal required
+  paidAmount BigDecimal
+  paymentDate LocalDate required
+  method String
+  note String
+}
+
+entity Attendance{
+  lessonDate LocalDate required
+  note String
 }
 
 relationship ManyToOne {
-  Customer{user(login)} to User with builtInEntity
+  Attendance{student} to Student
+  Attendance{group} to Group
+
+  Payment{student} to Student
+  Payment{group} to Group
 }
 
-paginate Customer with pagination
-service Customer with serviceClass
-dto Customer with mapstruct
+relationship OneToMany {
+  Group to Student{group}
+}
+
+dto * with mapstruct
+service * with serviceClass
+paginate * with pagination
